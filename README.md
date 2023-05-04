@@ -1,5 +1,5 @@
 # Google Stock Price Prediction with Recurrent Neural Networks 
-Welcome to our Google Stock Price Prediction project! This project leverages the power of Recurrent Neural Networks (RNNs) to predict the future stock price of Google based on historical data.
+Welcome to my Google Stock Price Prediction project! This project leverages the power of Recurrent Neural Networks (RNNs) to predict the future stock price of Google based on historical data.
 ## Table of Contents
 [Introduction](#introduction) <br>
 [Requirement](#requirement)<br>
