@@ -18,26 +18,25 @@ from sklearn.preprocessing import MinMaxScaler
 data_scale = MinMaxScaler(feature_range = (0, 1))
 training_set_scaled = data_scale.fit_transform(training_set)
 
-# Creating a data structure with 60 timesteps and 1 output
 X_train_val = []
 y_train_val = []
-for i in range(60, 1258):
+for i in range(60, 1270):
     X_train_val.append(training_set_scaled[i-60:i, 0])
     y_train_val.append(training_set_scaled[i, 0])
 X_train_val, y_train_val = np.array(X_train_val), np.array(y_train_val)
 
-# Reshaping
+# Reshape the value of training set 
 X_train_val = np.reshape(X_train_val, (X_train_val.shape[0], X_train_val.shape[1], 1))
 
 
 
 # Part 2 - Building the RNN
 
-# Importing the Keras libraries and packages
+# Importing libraries and packages
 from keras.models import Sequential
 from keras.layers import Dense
-from keras.layers import LSTM
 from keras.layers import Dropout
+from keras.layers import LSTM
 
 # Initialising the RNN
 regressor_mod = Sequential()
@@ -65,8 +64,7 @@ regressor_mod.add(Dense(units = 1))
 regressor_mod.compile(optimizer = 'adam', loss = 'mean_squared_error')
 
 # Fit RNN to Training set
-regressor_mod.fit(X_train_val, y_train_val, epochs = 100, batch_size = 32)
-
+regressor_mod.fit(X_train_val, y_train_val, epochs = 100, batch_size = 30)
 
 
 # Part 3 - Making the predictions and visualising the results
